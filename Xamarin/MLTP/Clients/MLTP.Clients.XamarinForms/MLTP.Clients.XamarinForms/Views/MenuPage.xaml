@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:markupExtension="clr-namespace:MLTP.Clients.XamarinForms.MarkupExtension"
+             x:Class="MLTP.Clients.XamarinForms.Views.MenuPage" 
+             xmlns:viewModel="clr-namespace:MLTP.Clients.XamarinForms.ViewModels" x:Name="menuPage"
+             Title="MenuPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:MenuViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" Android="0,26,0,0" iOS="0,30,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+            <StackLayout BackgroundColor="White">
+
+                <Grid>
+                    <Image Grid.Column="0" 
+                        Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.home.png}"
+                        HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
+                    </Image>
+
+                    <Image Grid.Column="1" HorizontalOptions="End" Margin="5"
+                        Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.logout.png}"
+                        HeightRequest="50" WidthRequest="50">
+                    </Image>
+                </Grid>
+                
+                
+                <!--<Image BackgroundColor="Red"
+                    Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.home.png}"
+                    HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="Center">
+                    --><!-- <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="onTappedClicked"/>
+                    </Image.GestureRecognizers>--><!--
+                </Image>
+
+                <Image 
+                    Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.logout.png}"
+                    HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="End">
+                    --><!-- <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="onTappedClicked"/>
+                    </Image.GestureRecognizers>--><!--
+                </Image>-->
+
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" BackgroundColor="Purple">
+                <Button 
+                    Command="{Binding Path=BindingContext.RedirectCommand, Source={x:Reference menuPage}}"
+                        CommandParameter="home"
+                    Text="MALTEPE UNIVERSİTY" FontAttributes="Italic" 
+                    HorizontalOptions="FillAndExpand" TextColor="#d9a002" 
+                    FontFamily="Vardana" BackgroundColor="#111111" FontSize="15"></Button>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <!--<ListView x:Name="lstCategory" ItemsSource="{Binding}"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="onRefresh" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>-->
+                <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+
+                    <Button 
+                        Command="{Binding Path=BindingContext.RedirectCommand, Source={x:Reference menuPage}}"
+                        CommandParameter="rabbitmq"
+                        Text="RABBITMQ MANAGER" HorizontalOptions="FillAndExpand" TextColor="Purple"
+                        FontFamily="Vardana" BackgroundColor="Gray" FontSize="14"></Button>
+
+
+                    <Image 
+                        Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.home.png}"
+                        HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="End">
+                        <!--<Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="onTapppedCategory" CommandParameter="{Binding}"/>
+                        </Image.GestureRecognizers>-->
+                    </Image>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+
+                    <Button 
+                        Command="{Binding Path=BindingContext.RedirectCommand, Source={x:Reference menuPage}}"
+                        CommandParameter="sqlite"
+                        Text="SQLITE MANAGER" HorizontalOptions="FillAndExpand" 
+                        TextColor="Purple" FontFamily="Vardana" 
+                        BackgroundColor="Gray" FontSize="14"></Button>
+
+
+                    <Image 
+                        Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Icons.home.png}"
+                        HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="End">
+                        <!--<Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="onTapppedCategory" CommandParameter="{Binding}"/>
+                        </Image.GestureRecognizers>-->
+                    </Image>
+
+                </StackLayout>
+                <!--</ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackLayout>
+
+            <Image Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Images.logo.jpg}"
+                    HeightRequest="50" WidthRequest="50" HorizontalOptions="FillAndExpand">
+            </Image>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

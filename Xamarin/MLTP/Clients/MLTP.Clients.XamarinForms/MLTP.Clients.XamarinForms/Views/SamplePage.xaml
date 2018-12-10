@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MLTP.Clients.XamarinForms.Views.SamplePage">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Label Text=" name" Grid.Row="0" Grid.Column="0" ></Label>
+            <Entry Grid.Row="0" Grid.Column="1"></Entry>
+
+            <Label Grid.Row="1" Grid.Column="0" Text=" Password" ></Label>
+            <Entry Grid.Row="1" Grid.Column="1"></Entry>
+
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Text="GİRİŞ"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

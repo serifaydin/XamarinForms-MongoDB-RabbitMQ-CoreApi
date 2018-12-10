@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MLTP.Clients.XamarinForms.Views.SQLitePage" 
+             xmlns:markupExtension="clr-namespace:MLTP.Clients.XamarinForms.MarkupExtension"
+             xmlns:viewModel="clr-namespace:MLTP.Clients.XamarinForms.ViewModels" x:Name="sqlPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:SQLiteViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical">
+            <StackLayout HeightRequest="250" BackgroundColor="LightGray" Margin="5">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Name : " VerticalTextAlignment="Center"></Label>
+                    <Entry Text="{Binding SqliteModel.Name}"
+                        Grid.Row="0" Grid.Column="1" 
+                           Placeholder="Name" BackgroundColor="White"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Surname : " VerticalTextAlignment="Center"></Label>
+                    <Entry  Text="{Binding SqliteModel.Surname}"
+                        Grid.Row="1" Grid.Column="1" 
+                           Placeholder="Surname" BackgroundColor="White"></Entry>
+
+                    <Button Command="{Binding Path=BindingContext.InsertCommand, Source={x:Reference sqlPage}}" 
+                        Text="CREATE" BackgroundColor="Purple" TextColor="White" 
+                            Grid.Row="2" Grid.ColumnSpan="2"></Button>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Liste}"
+                CachingStrategy="RecycleElement" SeparatorVisibility="None"  HasUnevenRows="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" Spacing="2">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" BackgroundColor="Blue" TextColor="White"></Label>
+                                        <Label Text="{Binding Surname}"></Label>
+                                        <Button Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference sqlPage}}" CommandParameter="{Binding}" Text="Sil"></Button>
+                                        <Button Command="{Binding Path=BindingContext.UpdateCommand, Source={x:Reference sqlPage}}" CommandParameter="{Binding}" Text="Düzenle"></Button>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <!--<ImageCell ImageSource="home.png" TextColor="Black" DetailColor="Black" 
+                                       Text="{Binding Name}" Detail="{Binding Surname}">
+
+                                <ImageCell.ContextActions>
+                                    -->
+                                <!--<MenuItem Text="NORMAL" CommandParameter="{Binding}"></MenuItem>-->
+                                <!--
+                                    <MenuItem Text="DELETE" 
+                                              Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference sqlPage}}" CommandParameter="{Binding}"></MenuItem>
+                                </ImageCell.ContextActions>
+
+                            </ImageCell>-->
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

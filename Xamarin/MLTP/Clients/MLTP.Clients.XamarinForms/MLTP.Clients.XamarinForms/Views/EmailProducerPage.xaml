@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MLTP.Clients.XamarinForms.Views.EmailProducerPage"
+             xmlns:viewModel="clr-namespace:MLTP.Clients.XamarinForms.ViewModels"
+             Title="EMAIL QUEUE" x:Name="mailQueuePage">
+
+    <ContentPage.BindingContext>
+        <viewModel:MessageQueueViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid Margin="10" RowSpacing="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Subject "></Label>
+                <Entry Text="{Binding EmailModel.Subject}"
+                    Grid.Row="0" Grid.Column="1" Placeholder="Subject"></Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Body "></Label>
+                <Entry Text="{Binding EmailModel.Body}"
+                    Grid.Row="1" Grid.Column="1" Placeholder="Body"></Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Message "></Label>
+                <Entry Text="{Binding EmailModel.Message}"
+                    Grid.Row="2" Grid.Column="1" Placeholder="Message"></Entry>
+
+                <Button Command="{Binding Path=BindingContext.MailQueueCommand, Source={x:Reference mailQueuePage}}"
+                    Text="MAIL QUEUE SEND" Grid.Row="3" Grid.RowSpan="2"/>
+            </Grid>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:markupExtension="clr-namespace:MLTP.Clients.XamarinForms.MarkupExtension"
+             x:Class="MLTP.Clients.XamarinForms.Views.HomePage" BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Maltepe University"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="{markupExtension:ImageSource Source=MLTP.Clients.XamarinForms.Assets.Images.logo.jpg}">
+                <Image.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="200" Android="250"/>
+                </Image.WidthRequest>
+                <Image.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="200" Android="200"/>
+                </Image.HeightRequest>
+            </Image>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

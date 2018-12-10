@@ -12,6 +12,6 @@
 </p>
 <br/>
 <p align="center">
-  <img width="900" height="700" src="https://github.com/serifaydin/XamarinForms-MongoDB-RabbitMQ-CoreApi/blob/master/images/4.PNG">
+  <img width="400" height="700" src="https://github.com/serifaydin/XamarinForms-MongoDB-RabbitMQ-CoreApi/blob/master/images/4.PNG">
 </p>
 <br/>
